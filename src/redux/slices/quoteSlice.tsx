@@ -1,11 +1,11 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { errorNotification } from 'helper/helper';
-import { QuoteState } from 'types/quotesType';
+import { emptyQuotes, QuoteState } from 'types/quotesType';
 
 import { getAllQuotesService } from 'services/quoteService';
 
 const initialState: QuoteState = {
-  quotes: [],
+  quotes: emptyQuotes,
   loading: false,
   error: null,
 };
