@@ -27,9 +27,9 @@ const quoteSlice = createSlice({
   },
 });
 
-export const fetchQuotes = createAsyncThunk('quote/fetchQuotes', async () => {
+export const fetchQuotes = createAsyncThunk('quote/fetchQuotes', async (currentPage: number) => {
   try {
-    const response = await getAllQuotesService();
+    const response = await getAllQuotesService(currentPage);
 
     return response.data;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any

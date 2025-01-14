@@ -8,7 +8,7 @@ const Quote = ({ quote }: QuoteParams): JSX.Element => {
 
   return (
     <>
-      <td className="px-4 py-2 border-b">{author}</td>
+      <td className="px-4 py-2 border-b whitespace-nowrap">{author}</td>
       <td className="px-4 py-2 border-b">{content}</td>
       <td className="px-4 py-2 border-b">
         <div className="flex flex-wrap gap-2">
