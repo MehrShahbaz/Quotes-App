@@ -3,7 +3,7 @@ import Spinner from 'react-bootstrap/Spinner';
 import { useSelector } from 'react-redux';
 import { isQuoteLoading } from 'reducer/selectors/quoteSelector';
 
-const Loader = (): JSX.Element => {
+const Loader = (): React.ReactElement => {
   const quoteLoading = useSelector(isQuoteLoading);
 
   if (quoteLoading) {

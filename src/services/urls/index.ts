@@ -3,3 +3,7 @@ export const quotesURL = {
   getQuoteById: (id: number) => `/quotes/${id}`,
   getRandomQuote: '/quotes/random',
 };
+
+export const authorURL = {
+  getAllAuthors: (currentPage: number) => `/authors?page=${currentPage}`,
+};

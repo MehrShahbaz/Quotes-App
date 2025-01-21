@@ -16,6 +16,7 @@ const quoteSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(fetchQuotes.pending, (state, _action) => {
       state.loading = true;
+      state.quotes.results = [];
     });
     builder.addCase(fetchQuotes.fulfilled, (state, action) => {
       state.loading = false;
