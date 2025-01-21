@@ -1,9 +1,8 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { AppDispatch } from 'redux/store/store';
-
-import { selectAllQuotes, selectTotalPages } from '../redux/selectors/quoteSelector';
-import { fetchQuotes } from '../redux/slices/quoteSlice';
+import { selectAllQuotes, selectTotalPages } from 'reducer/selectors/quoteSelector';
+import { fetchQuotes } from 'reducer/slices/quoteSlice';
+import { AppDispatch } from 'reducer/store/store';
 
 import Pagination from './shared/Pagination';
 import Quote from './Quote';

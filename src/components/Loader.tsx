@@ -1,8 +1,7 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import Spinner from 'react-bootstrap/Spinner';
 import { useSelector } from 'react-redux';
-
-import { isQuoteLoading } from '../redux/selectors/quoteSelector';
+import { isQuoteLoading } from 'reducer/selectors/quoteSelector';
 
 const Loader = (): JSX.Element => {
   const quoteLoading = useSelector(isQuoteLoading);

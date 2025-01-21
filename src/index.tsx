@@ -2,8 +2,8 @@ import ReactDOM from 'react-dom/client';
 // import reportWebVitals from "./reportWebVitals";
 import { ReactNotifications } from 'react-notifications-component';
 import { Provider } from 'react-redux';
+import store from 'reducer/store/store';
 
-import store from './redux/store/store';
 import App from './App';
 
 import './index.css';
