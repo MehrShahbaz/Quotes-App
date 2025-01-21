@@ -1,11 +1,11 @@
-import CustomNavbar from 'components/Navbar/Navbar';
+// import CustomNavbar from 'components/Navbar/Navbar';
 import Loader from 'components/shared/Loader';
 
 import HomePage from './screens/Home';
 
-const App = (): JSX.Element => (
+const App = (): React.ReactElement => (
   <div>
-    <CustomNavbar />
+    {/* <CustomNavbar /> */}
     <Loader />
     <HomePage />
   </div>

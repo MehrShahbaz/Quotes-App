@@ -5,7 +5,7 @@ type PaginationParams = {
   previousPage: () => void;
 };
 
-const Pagination = ({ currentPage, totalPages, nextPage, previousPage }: PaginationParams): JSX.Element => (
+const Pagination = ({ currentPage, totalPages, nextPage, previousPage }: PaginationParams): React.ReactElement => (
   <div className="flex items-center justify-center gap-4 p-4 bg-gray-100 rounded-lg shadow-md mt-1">
     {/* Previous Button */}
     <button

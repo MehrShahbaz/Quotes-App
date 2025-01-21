@@ -7,7 +7,7 @@ import ErrorPage from 'components/shared/ErrorPage';
 
 import { urls } from './urls';
 
-const RouterConfig = (): JSX.Element => (
+const RouterConfig = (): React.ReactElement => (
   <Router>
     <Routes>
       <Route path="/" element={<Layout />}>

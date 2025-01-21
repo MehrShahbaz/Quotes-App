@@ -15,6 +15,7 @@ const authorSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(fetchAuthors.pending, (state, _action) => {
+      state.authors.results = [];
       state.loading = true;
     });
     builder.addCase(fetchAuthors.fulfilled, (state, action) => {

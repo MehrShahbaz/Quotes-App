@@ -3,7 +3,7 @@ type QuoteParams = {
   quote: QuoteType;
 };
 
-const Quote = ({ quote }: QuoteParams): JSX.Element => {
+const Quote = ({ quote }: QuoteParams): React.ReactElement => {
   const { author, content, tags } = quote;
 
   return (

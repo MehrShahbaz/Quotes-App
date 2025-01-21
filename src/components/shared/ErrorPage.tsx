@@ -1,4 +1,4 @@
-const ErrorPage = (): JSX.Element => (
+const ErrorPage = (): React.ReactElement => (
   <div
     id="error-page"
     style={{

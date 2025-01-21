@@ -1,14 +1,17 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { selectAllAuthors, selectTotalPages } from 'reducer/selectors/authorSelector';
 import { fetchAuthors } from 'reducer/slices/authorSlice';
 import { AppDispatch } from 'reducer/store/store';
+
+import { urls } from 'routes/urls';
 
 import Pagination from '../shared/Pagination';
 
 import Author from './Author';
 
-const Authors = (): JSX.Element => {
+const Authors = (): React.ReactElement => {
   const [currentPage, setCurrentPage] = useState(1);
   const dispatch = useDispatch<AppDispatch>();
   const authors = useSelector(selectAllAuthors);
@@ -27,7 +30,12 @@ const Authors = (): JSX.Element => {
 
   return (
     <div className="p-6 bg-gray-100 min-h-screen flex flex-col">
-      <h1 className="text-3xl font-bold text-center text-gray-800 mb-1">Authors</h1>
+      <div className="flex items-center justify-between px-4 py-2">
+        <h1 className="text-3xl font-bold text-gray-800 text-center flex-grow">Authors</h1>
+        <Link to={urls.quotes} className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">
+          Quotes
+        </Link>
+      </div>
       <div className="flex-grow h-10 overflow-y-auto bg-white rounded-lg shadow-md">
         <table className="table-auto w-full overflow-y-auto">
           <thead>

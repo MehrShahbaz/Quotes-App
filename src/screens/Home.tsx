@@ -1,10 +1,7 @@
 import { Outlet } from 'react-router-dom';
 
-import CustomNavbar from 'components/Navbar/Navbar';
-
-const Layout = (): JSX.Element => (
+const Layout = (): React.ReactElement => (
   <div>
-    <CustomNavbar />
     <div>
       <Outlet />
     </div>
