@@ -4,7 +4,8 @@ import { selectAllQuotes, selectTotalPages } from 'reducer/selectors/quoteSelect
 import { fetchQuotes } from 'reducer/slices/quoteSlice';
 import { AppDispatch } from 'reducer/store/store';
 
-import Pagination from './shared/Pagination';
+import Pagination from '../shared/Pagination';
+
 import Quote from './Quote';
 
 const Quotes = (): JSX.Element => {

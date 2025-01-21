@@ -1,10 +1,13 @@
-import Loader from 'components/Loader';
-import Quotes from 'components/Quotes';
+import CustomNavbar from 'components/Navbar/Navbar';
+import Loader from 'components/shared/Loader';
+
+import HomePage from './screens/Home';
 
 const App = (): JSX.Element => (
   <div>
+    <CustomNavbar />
     <Loader />
-    <Quotes />
+    <HomePage />
   </div>
 );
 
