@@ -1,4 +1,5 @@
 export const urls = {
   home: '/',
-  quotes: 'quotes',
+  quotes: '/quotes',
+  author: '/authors',
 };

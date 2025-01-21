@@ -18,17 +18,17 @@ const CustomNavbar = (): JSX.Element => (
           <Nav className="me-auto my-2 my-lg-0" style={{ maxHeight: '100px' }} navbarScroll>
             <NavDropdown title="Options" id="navbarScrollingDropdown">
               <NavDropdown.Item>
-                <Link to={urls.quotes}>Products</Link>
+                <Link to={urls.quotes}>Quotes</Link>
               </NavDropdown.Item>
               <NavDropdown.Item>
-                <Link to={urls.quotes}>Categories</Link>
+                <Link to={urls.author}>Authors</Link>
+              </NavDropdown.Item>
+              {/* <NavDropdown.Item>
+                <Link to={urls.home}>None</Link>
               </NavDropdown.Item>
               <NavDropdown.Item>
-                <Link to={urls.quotes}>Food Marts</Link>
-              </NavDropdown.Item>
-              <NavDropdown.Item>
-                <Link to={urls.quotes}>Manufacturer</Link>
-              </NavDropdown.Item>
+                <Link to={urls.home}>None</Link>
+              </NavDropdown.Item> */}
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>

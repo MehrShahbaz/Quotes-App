@@ -27,10 +27,9 @@ const Quotes = (): JSX.Element => {
 
   return (
     <div className="p-6 bg-gray-100 min-h-screen flex flex-col">
-      <h1 className="text-3xl font-bold text-center text-gray-800 mb-6">Quotes</h1>
-      {/* Table container with scroll */}
-      <div className="flex-grow overflow-y-auto bg-white rounded-lg shadow-md">
-        <table className="table-auto w-full">
+      <h1 className="text-3xl font-bold text-center text-gray-800 mb-1">Quotes</h1>
+      <div className="flex-grow h-10 overflow-y-auto bg-white rounded-lg shadow-md">
+        <table className="table-auto w-full overflow-y-auto">
           <thead>
             <tr className="bg-gray-200 text-gray-700 sticky top-0">
               <th className="px-4 py-2 text-left">Author</th>
@@ -38,7 +37,7 @@ const Quotes = (): JSX.Element => {
               <th className="px-4 py-2 text-left">Tags</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="">
             {quotes.map((quote, index) => (
               <tr key={quote._id} className={`${index % 2 === 0 ? 'bg-gray-50' : 'bg-white'} hover:bg-gray-100`}>
                 <Quote quote={quote} />
@@ -47,7 +46,6 @@ const Quotes = (): JSX.Element => {
           </tbody>
         </table>
       </div>
-      {/* Pagination */}
       <Pagination currentPage={currentPage} nextPage={nextPage} previousPage={previousPage} totalPages={totalPages} />
     </div>
   );
