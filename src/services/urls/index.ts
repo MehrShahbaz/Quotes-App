@@ -6,4 +6,5 @@ export const quotesURL = {
 
 export const authorURL = {
   getAllAuthors: (currentPage: number) => `/authors?page=${currentPage}`,
+  getAuthorBySlug: (slug: string) => `/authors?slug=${slug}`,
 };

@@ -7,10 +7,8 @@ type ShowNotificationProps = {
   duration?: number;
 };
 
-type ErrorType = {
-  error: string;
-  exception: string;
-  status: number;
+type ShowErrorProps = {
+  message: string;
 };
 
 export const showNotification = ({ title, type, message, duration }: ShowNotificationProps): void => {
@@ -30,17 +28,11 @@ export const showNotification = ({ title, type, message, duration }: ShowNotific
 };
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const errorNotification = (err: any, duration?: number): void => {
-  if (err.response) {
-    const data: ErrorType = err.response.data;
-
-    showNotification({
-      title: data.error || 'Error',
-      type: 'danger',
-      message: data.exception || 'Error',
-      duration,
-    });
-  } else {
-    throw err;
-  }
+export const errorNotification = ({ message }: ShowErrorProps): void => {
+  showNotification({
+    title: 'Error',
+    type: 'danger',
+    message: message,
+    duration: 2000,
+  });
 };

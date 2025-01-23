@@ -5,7 +5,7 @@ import { http, HttpResponse } from 'msw';
 import { setupServer } from 'msw/node';
 import store from 'reducer/store/store';
 
-import Authors from 'components/Authors/Authors';
+import Authors from 'components/Authors/AuthorTable/Authors';
 import { urls } from 'routes/urls';
 import { authorURL } from 'services/urls';
 

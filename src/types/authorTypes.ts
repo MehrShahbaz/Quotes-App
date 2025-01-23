@@ -26,7 +26,7 @@ export type AuthorState = {
 export const emptyAuthor: AuthorsType = {
   count: 0,
   totalCount: 0,
-  page: 0,
+  page: 1,
   totalPages: 0,
   lastItemIndex: 0,
   results: [],
