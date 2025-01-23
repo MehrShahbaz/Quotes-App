@@ -5,6 +5,7 @@ import store from 'reducer/store/store';
 
 import RouterConfig from 'routes/RouterConfig';
 
+import 'react-notifications-component/dist/theme.css';
 // import reportWebVitals from "./reportWebVitals";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';

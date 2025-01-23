@@ -6,4 +6,4 @@ import { authorURL } from './urls';
 export const getAllAuthorService = (currentPage: number): AxiosPromise =>
   baseService.get(authorURL.getAllAuthors(currentPage));
 
-// export const getQuoteByIdService = (id: number): AxiosPromise => baseService.get(authorURL.getQuoteById(id));
+export const getAuthorBySlugService = (slug: string): AxiosPromise => baseService.get(authorURL.getAuthorBySlug(slug));
