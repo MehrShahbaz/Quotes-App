@@ -3,7 +3,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { render, screen } from '@testing-library/react';
 import store from 'reducer/store/store'; // Path to your real Redux store
 
-import Quotes from 'components/Quotes/Quotes';
+import Quotes from 'components/Quotes/QuotesTable/Quotes';
 
 test('Renders Quotes Component', () => {
   render(

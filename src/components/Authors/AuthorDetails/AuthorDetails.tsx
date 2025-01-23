@@ -5,6 +5,8 @@ import { selectAllAuthors } from 'reducer/selectors/authorSelector';
 import { fetchAuthorBySlug } from 'reducer/slices/authorSlice';
 import { AppDispatch } from 'reducer/store/store';
 
+import { urls } from 'routes/urls';
+
 const AuthorDetails = (): React.ReactElement => {
   const { authorSlug } = useParams();
   const dispatch = useDispatch<AppDispatch>();
@@ -25,7 +27,6 @@ const AuthorDetails = (): React.ReactElement => {
 
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col items-center p-6">
-      {/* Go Back Button */}
       <div className="w-full flex justify-end mb-4">
         <button
           onClick={() => navigate(-1)}
@@ -35,7 +36,6 @@ const AuthorDetails = (): React.ReactElement => {
         </button>
       </div>
 
-      {/* Author Details Card */}
       <div className="max-w-2xl w-full bg-white border rounded-lg shadow-lg p-8">
         <h1 className="text-3xl font-bold text-gray-800 mb-4">{name}</h1>
         <p className="text-gray-600 italic mb-6">{description}</p>
@@ -49,7 +49,10 @@ const AuthorDetails = (): React.ReactElement => {
         </div>
         {/* Links: Separate Ends */}
         <div className="mt-6 flex justify-between items-center">
-          <Link to="" className="bg-gray-200 text-gray-800 px-4 py-2 rounded-lg hover:bg-gray-300">
+          <Link
+            to={`${urls.quotes}/${authorSlug}`}
+            className="bg-gray-200 text-gray-800 px-4 py-2 rounded-lg hover:bg-gray-300"
+          >
             Show Quotes
           </Link>
           <a href={link} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline text-lg">

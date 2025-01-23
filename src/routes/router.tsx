@@ -1,7 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom';
 
 import Authors from 'components/Authors/AuthorTable/Authors';
-import Quotes from 'components/Quotes/Quotes';
+import Quotes from 'components/Quotes/QuotesTable/Quotes';
 import ErrorPage from 'components/shared/ErrorPage';
 
 import { urls } from './urls';
