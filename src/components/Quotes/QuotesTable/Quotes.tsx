@@ -7,6 +7,7 @@ import { fetchQuotes } from 'reducer/slices/quoteSlice';
 import { AppDispatch } from 'reducer/store/store';
 
 import Pagination from 'components/shared/Pagination';
+import QuoteTags from 'components/shared/QuoteTags';
 import { urls } from 'routes/urls';
 
 const Quotes = (): React.ReactElement => {
@@ -64,20 +65,11 @@ const Quotes = (): React.ReactElement => {
                 <tr className={`${index % 2 === 0 ? 'bg-gray-50' : 'bg-white'} hover:bg-gray-100`}>
                   <td className="px-4 py-2 border-b whitespace-nowrap">{offset + index + 1}</td>
                   <td className="px-4 py-2 border-b whitespace-nowrap underline">
-                    <Link to={`${urls.author}/${authorSlug}`}>{author}</Link>
+                    <Link to={urls.authorDetails(authorSlug)}>{author}</Link>
                   </td>
                   <td className="px-4 py-2 border-b">{content}</td>
                   <td className="px-4 py-2 border-b">
-                    <div className="flex flex-wrap gap-2">
-                      {tags.map((tag: string, idx: number) => (
-                        <span
-                          key={idx}
-                          className="bg-blue-200 text-blue-800 text-sm font-medium px-3 py-1 rounded-full"
-                        >
-                          #{tag}
-                        </span>
-                      ))}
-                    </div>
+                    <QuoteTags tags={tags} />
                   </td>
                 </tr>
               );

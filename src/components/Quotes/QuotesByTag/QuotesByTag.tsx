@@ -1,19 +1,18 @@
 import { useCallback, useEffect, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
+import { Link, useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import { errorNotification } from 'helper/helper';
 import { selectAllQuotes, selectTotalPages } from 'reducer/selectors/quoteSelector';
-import { fetchQuotesByAuthorSlug } from 'reducer/slices/quoteSlice';
+import { fetchQuotesByTag } from 'reducer/slices/quoteSlice';
 import { AppDispatch } from 'reducer/store/store';
 
 import Pagination from 'components/shared/Pagination';
 import QuoteTags from 'components/shared/QuoteTags';
+import { urls } from 'routes/urls';
 
-// import Pagination from 'components/shared/Pagination';
-
-const QuotesbyAuthor = (): React.ReactElement => {
+const QuotesByTag = (): React.ReactElement => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const { authorSlug } = useParams();
+  const { tagSlug } = useParams();
   const quotes = useSelector(selectAllQuotes);
   const dispatch = useDispatch<AppDispatch>();
   const navigate = useNavigate();
@@ -28,10 +27,10 @@ const QuotesbyAuthor = (): React.ReactElement => {
   }, [currentPage, totalPages, setSearchParams]);
 
   useEffect(() => {
-    if (authorSlug) {
-      dispatch(fetchQuotesByAuthorSlug({ slug: authorSlug, page: currentPage }));
+    if (tagSlug) {
+      dispatch(fetchQuotesByTag({ slug: tagSlug, page: currentPage }));
     }
-  }, [authorSlug, dispatch, currentPage]);
+  }, [tagSlug, dispatch, currentPage]);
 
   const offset = useMemo(() => 20 * (currentPage - 1), [currentPage]);
   const nextPage = useCallback(() => {
@@ -52,7 +51,7 @@ const QuotesbyAuthor = (): React.ReactElement => {
   return (
     <div className="p-6 bg-gray-100 min-h-screen flex flex-col">
       <div className="flex items-center justify-between px-4 py-2">
-        <h1 className="text-3xl font-bold text-gray-800 text-center flex-grow">Quotes by "{quotes[0].author}"</h1>
+        <h1 className="text-3xl font-bold text-gray-800 text-center flex-grow">Quotes with tag "{tagSlug}"</h1>
         <button
           onClick={() => navigate(-1)}
           className="bg-blue-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-blue-600 focus:outline-none"
@@ -65,17 +64,23 @@ const QuotesbyAuthor = (): React.ReactElement => {
           <thead>
             <tr className="bg-gray-200 text-gray-700 sticky top-0">
               <th className="px-4 py-2 text-left">Sr.</th>
+              <th className="px-4 py-2 text-left">Author</th>
               <th className="px-4 py-2 text-left">Content</th>
               <th className="px-4 py-2 text-left">Tags</th>
             </tr>
           </thead>
           <tbody className="">
             {quotes.map((quote, index) => {
-              const { content, tags } = quote;
+              const { content, tags, author, authorSlug } = quote;
 
               return (
                 <tr className={`${index % 2 === 0 ? 'bg-gray-50' : 'bg-white'} hover:bg-gray-100`}>
                   <td className="px-4 py-2 border-b whitespace-nowrap">{offset + index + 1}</td>
+                  <td className="px-4 py-2 border-b whitespace-nowrap">
+                    <Link className="underline" to={urls.authorDetails(authorSlug)}>
+                      {author}
+                    </Link>
+                  </td>
                   <td className="px-4 py-2 border-b">{content}</td>
                   <td className="px-4 py-2 border-b">
                     <QuoteTags tags={tags} />
@@ -91,4 +96,4 @@ const QuotesbyAuthor = (): React.ReactElement => {
   );
 };
 
-export default QuotesbyAuthor;
+export default QuotesByTag;
