@@ -1,6 +1,8 @@
 export const quotesURL = {
   getAllQuotes: (currentPage: number) => `/quotes?page=${currentPage}`,
   getQuoteById: (id: number) => `/quotes/${id}`,
+  getQuoteByAuthorSlug: (slug: string, page: number) => `/quotes?author=${slug}&page=${page}`,
+  getQuoteByTag: (slug: string, page: number) => `/quotes?tags=${slug}&page=${page}`,
   getRandomQuote: '/quotes/random',
 };
 
