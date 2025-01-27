@@ -42,7 +42,7 @@ const Authors = (): React.ReactElement => {
     <div className="p-6 bg-gray-100 min-h-screen flex flex-col">
       <div className="flex items-center justify-between px-4 py-2">
         <h1 className="text-3xl font-bold text-gray-800 text-center flex-grow">Authors</h1>
-        <Link to={urls.quotes} className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">
+        <Link role="link" to={urls.quotes} className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">
           Quotes
         </Link>
       </div>
@@ -66,13 +66,17 @@ const Authors = (): React.ReactElement => {
                   <td className="px-4 py-2 border-b whitespace-nowrap">{offset + index + 1}</td>
                   {parseInt(quoteCount) > 0 ? (
                     <td className="px-4 py-2 border-b whitespace-nowrap underline">
-                      <Link to={`${urls.author}/${slug}`}>{name}</Link>
+                      <Link data-testid={`author-link-${index}`} to={`${urls.author}/${slug}`}>
+                        {name}
+                      </Link>
                     </td>
                   ) : (
                     <td className="px-4 py-2 border-b">{name}</td>
                   )}
                   <td className="px-4 py-2 border-b">{description}</td>
-                  <td className="px-4 py-2 border-b">{quoteCount}</td>
+                  <td data-testid={`author-count-${index}`} className="px-4 py-2 border-b">
+                    {quoteCount}
+                  </td>
                 </tr>
               );
             })}

@@ -52,7 +52,7 @@ const Quotes = (): React.ReactElement => {
           <thead>
             <tr className="bg-gray-200 text-gray-700 sticky top-0">
               <th className="px-4 py-2 text-left">Sr.</th>
-              <th className="px-4 py-2 text-left">Author</th>
+              <th className="px-4 py-2 text-left">Name</th>
               <th className="px-4 py-2 text-left">Content</th>
               <th className="px-4 py-2 text-left">Tags</th>
             </tr>
@@ -65,11 +65,13 @@ const Quotes = (): React.ReactElement => {
                 <tr className={`${index % 2 === 0 ? 'bg-gray-50' : 'bg-white'} hover:bg-gray-100`}>
                   <td className="px-4 py-2 border-b whitespace-nowrap">{offset + index + 1}</td>
                   <td className="px-4 py-2 border-b whitespace-nowrap underline">
-                    <Link to={urls.authorDetails(authorSlug)}>{author}</Link>
+                    <Link data-testid={`author-link-${index}`} to={urls.authorDetails(authorSlug)}>
+                      {author}
+                    </Link>
                   </td>
                   <td className="px-4 py-2 border-b">{content}</td>
                   <td className="px-4 py-2 border-b">
-                    <QuoteTags tags={tags} />
+                    <QuoteTags testId={`author-tag-${index}`} tags={tags} />
                   </td>
                 </tr>
               );

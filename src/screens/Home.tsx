@@ -1,11 +1,5 @@
 import { Outlet } from 'react-router-dom';
 
-const Layout = (): React.ReactElement => (
-  <div>
-    <div>
-      <Outlet />
-    </div>
-  </div>
-);
+const Layout = (): React.ReactElement => <Outlet />;
 
 export default Layout;
